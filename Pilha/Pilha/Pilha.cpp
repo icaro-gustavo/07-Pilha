@@ -84,15 +84,36 @@ void push()
 	}
 
 	cout << "Digite o elemento: ";
-	cin >> novo->valor;
-	novo->prox = NULL;
+	cin >> novo->valor;// inicializa o ponteiro prox do novo elemento
+	novo->prox = NULL;	
 
+	if (topo == NULL) {
+		topo = novo;
+	}
+
+	else {
+		novo->prox = topo;
+		topo = novo;
+
+	}
+	cout << "Elemento " << novo->valor << " inserido no topo da pilha\n";
 
 }
 
 void pop()
 {
+	
+	if (topo == NULL) {
+		cout << "Pilha vazia \n";
+		return;
+	}
 
+	else {
+		NO* aux = topo;
+		topo = topo->prox;
+		cout << "Elemento " << aux->valor << " removido do topo da pilha\n";
+		free(aux);
+	}
 	
 
 }
